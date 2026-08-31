@@ -333,6 +333,67 @@
                 }
             });
 
+            var productDetailLinkMap = {
+                "Sơn nội thất Pro 1: Bóng ngọc trai": "san-pham-60-son-noi-that-pro-1-bong-ngoc-trai.html",
+                "Sơn nội thất Pro 1: Siêu trắng trần": "san-pham-62-son-noi-that-pro-1-sieu-trang-tran.html",
+                "PRO2+ SALT PROOF": "san-pham-38-pro2-salt-proof.html",
+                "Sơn ngoại thất Pro 2: Bóng Hoàn Mỹ": "san-pham-57-son-ngoai-that-pro-2-bong-hoan-my.html",
+                "Sơn ngoại thất Pro 2: Kháng muối kháng kiềm": "san-pham-55-son-ngoai-that-pro-2-khang-muoi-khang-kiem.html",
+                "Sơn ngoại thất Pro 2: Bóng ngọc trai": "san-pham-59-son-ngoai-that-pro-2-bong-ngoc-trai.html",
+                "Sơn ngoại thất Pro 2: Mịn màng tươi sáng": "san-pham-53-son-ngoai-that-pro-2-min-mang-tuoi-sang.html",
+                "Sơn Pro: Siêu chống thấm màu": "san-pham-64-son-pro-sieu-chong-tham-mau.html",
+                "Sơn Pro: Siêu chống thấm đa năng": "san-pham-65-son-pro-sieu-chong-tham-da-nang.html",
+                "Chống thấm Pro: Chống thấm vượt trội": "san-pham-66-chong-tham-pro-chong-tham-vuot-troi.html",
+                "Sơn lót nội thất Pro1: Chống kiềm hiệu quả": "san-pham-52-son-lot-noi-that-pro1-chong-kiem-hieu-qua.html",
+                "Sơn lót ngoại thất Pro2: Chống kiềm hiệu quả": "san-pham-51-son-lot-ngoai-that-pro2-chong-kiem-hieu-qua.html",
+                "GLITTER BỀN THỜI TIẾT VƯỢT TRỘI": "san-pham-5-glitter-t-l-m-s-ch.html",
+                "LANSHINE CHỐNG UV": "san-pham-6-lanshine-gi-m-nhi-t.html",
+                "Sơn ngoại thất Pro 2: Siêu bóng co giãn": "san-pham-54-son-ngoai-that-pro-2-sieu-bong-co-gian.html",
+                "PRO 1+ HOÀN MỸ": "san-pham-1-pro1--hoan-my.html",
+                "GLITE TINH TẾ & HIỆN ĐẠI": "san-pham-2-glite-tinh-te-va-hien-dai.html",
+                "PRO 2+ BẢO VỆ HOÀN HẢO": "san-pham-4-pro-2-b-o-v-ho-n-h-o.html",
+                "LANMYA BÓNG NGỌC TRAI": "san-pham-3-lanmya-b-ng-ng-c-trai.html",
+                "PRO2+ SALT PROOF PRIMER": "san-pham-36-pro2-salt-proof-primer.html",
+                "Sơn nội thất Pro 1: Siêu bóng": "san-pham-58-son-noi-that-pro-1-sieu-bong.html",
+                "Sơn ngoại thất Pro 2: Mịn màng hiệu quả": "san-pham-63-son-ngoai-that-pro-2-min-mang-hieu-qua.html",
+                "Sơn nội thất: Lau chùi vượt trội": "san-pham-61-son-noi-that-lau-chui-vuot-troi.html",
+                "SEALER": "san-pham-20-sealer.html",
+                "GJC TOUGH": "san-pham-35-gjc-tough.html",
+                "ECO-PROTECT": "san-pham-46-eco-protect.html",
+                "Sơn nội thất Pro1: Mịn lụa là": "san-pham-49-son-noi-that-pro1-min-lua-la.html",
+                "ECO-SMOOTH": "san-pham-45-eco-smooth.html",
+                "SILK PLASTER NỘI THẤT": "san-pham-12-silk-plaster-white.html",
+                "SILK PLASTER": "san-pham-11-silk-plaster.html",
+                "PROTECTOR 3+": "san-pham-8-protector-3--son-sieu-bong-khong-mau.html",
+                "LAX MATIC LÁNG MỊN": "san-pham-23-lax-matic-phu-lang-muot--chóng-muõi.html",
+                "AVATAR": "san-pham-28-son-dau-avatar.html",
+                "Sơn nội thất Pro 1: Siêu bóng tự làm sạch": "san-pham-56-son-noi-that-pro-1-sieu-bong-tu-lam-sach.html",
+                "LAX AMOR BỀN ĐẸP": "san-pham-37-lax-amor-ben-dep.html",
+                "GJC HIỆU QUẢ": "san-pham-13-gjc-hieu-qua.html",
+                "KLENTER LAU CHÙI VƯỢT TRỘI NEW": "san-pham-21-klenter-lau-chui-de-dang.html",
+                "PROTECTOR": "san-pham-9-protector.html",
+                "CEILPRO SIÊU TRẮNG SÁNG": "san-pham-22-ceilpro-sieu-trang-sang.html",
+                "PRO+ SIÊU CHỐNG THẤM MÀU": "san-pham-26-pro-sieu-chong-tham-mau.html",
+                "PRO+ CHỐNG THẤM ĐA NĂNG": "san-pham-27-pro-chong-tham-da-nang.html",
+                "PRIMER": "san-pham-18-primer.html",
+                "LOT 3 IN 1 CHỐNG KIỀM VƯỢT TRỘI": "san-pham-19-lot-3-in-1.html",
+                "LOT+ CHỐNG KIỀM VƯỢT TRỘI": "san-pham-7-lot--chong-kiem-vuot-troi.html"
+            };
+
+            function getProductDetailUrl(name) {
+                if (!name) return '#';
+                var clean = name.trim();
+                if (productDetailLinkMap[clean]) return productDetailLinkMap[clean];
+                // Thử tìm kiếm mờ theo tên
+                var lower = clean.toLowerCase();
+                for (var key in productDetailLinkMap) {
+                    if (key.toLowerCase() === lower || lower.includes(key.toLowerCase()) || key.toLowerCase().includes(lower)) {
+                        return productDetailLinkMap[key];
+                    }
+                }
+                return '#';
+            }
+
             function renderCarousel(products) {
                 if (!products || products.length === 0) return;
 
@@ -348,7 +409,7 @@
                 products.forEach(function (p) {
                     var priceFormatted = p.gia_ban ? (typeof p.gia_ban === 'number' ? Number(p.gia_ban).toLocaleString('vi-VN') + ' đ' : p.gia_ban) : 'Liên hệ';
                     if (!priceFormatted.includes('đ') && !priceFormatted.includes('Liên hệ')) priceFormatted += ' đ';
-                    var detailLink = p.link_chi_tiet || '#';
+                    var detailLink = p.link_chi_tiet || getProductDetailUrl(p.ten_san_pham);
                     var rating = p.danh_gia || p.quy_cach || '4.5';
 
                     // Xử lý huy hiệu phân khúc / loại sản phẩm chính xác
