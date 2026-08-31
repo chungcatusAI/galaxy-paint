@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /app_dev.php/
+Disallow: /_profiler/
+Disallow: /_wdt/
+Disallow: /webadmin-sub/
+Disallow: /web/backend/
+Disallow: /.playwright-mcp/
+Disallow: /__pycache__/
+
+# Add the production Sitemap URL after the final domain is known.

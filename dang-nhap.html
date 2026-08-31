@@ -1,0 +1,94 @@
+<div class="modal-user" id="modal-user">
+    <div class="escape-modal"></div>
+    <div class="content-modal">
+        <div class="close-modal"><img src="web/frontend/images/escape.png" alt=""></div>
+        <ul class="tab-style" role="tablist">
+                            <li id="login-active" role="presentation" class="active"><a onclick="return clickLogin()" href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Đăng nhập</a></li>
+                        <li id="register-active" role="presentation"><a onclick="return clickLuckyPainter()" href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Đăng ký</a></li>
+                            <li id="profile-active" role="presentation"><a onclick="return clickProfile()" href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Hồ sơ</a></li>
+                    </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="tab1">
+                <div class="login-form">
+                    <form action="/" method="post">
+                        <div class="form-group">
+                            <span>Số điện thoại</span>
+                            <input type="text" id="username" name="_username" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <span>Mật khẩu</span>
+                            <input id="password" name="_password" type="password" required>
+                        </div>
+                        <div class="form-group">
+                            <button style="margin-left: 1vw" type="submit">Đăng nhập</button>
+                        </div>
+                        <p style="margin-left: 1vw" class="forget-pass">Quên mật khẩu? Nhấp vào <a class="forgot-password">đây</a></p>
+                                                                                                                                                                                                                            </form>
+                </div>
+                <!-- login-form -->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab2">
+                <div class="register-form">
+                    <form action="" method="post" id="register-form">
+                        <div class="form-group">
+                            <span>Họ và tên</span>
+                            <input class="amz_name" id="amz_name" type="text" name="name">
+                        </div>
+                        <div class="form-group">
+                            <span>Số điện thoại</span>
+                            <input class="amz_sdt" id="amz_sdt" type="number" name="sdt">
+                        </div>
+                        <div class="form-group">
+                            <span>Mật khẩu</span>
+                            <input class="amz_password" id="amz_password" type="password" name="password">
+                        </div>
+                        <div class="form-group">
+                            <span>Nhập lại mật khẩu</span>
+                            <input class="amz_rpassword" id="amz_rpassword" type="password" name="r_password">
+                        </div>
+                        <div class="form-group">
+                            <div style="margin-left: 1vw" id="RecaptchaFieldRegister"></div>
+                        </div>
+                        <p style="margin-left: 1vw" class="term amz-register-erro">Khi bạn nhấn Đăng ký, bạn đã đồng ý với các <a class="btn-rule-lucky-painter" href="javascript:">điều khoản</a> của
+                            Galaxy.</p>
+                        <div class="form-group">
+                            <a style="margin-left: 1vw" class="amz_login">Tạo tài khoản</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- login-form -->
+            </div>
+            <div role="tabpanel" class="tab-pane" id="tab3">
+                <div class="profile-box">
+                    <p>Bạn hãy <a onclick="return clickLogin()" style="font-weight: bold; color: #337ab7">đăng nhập</a> hoặc <a onclick="return clickLuckyPainter()" style="font-weight: bold; color: #337ab7">đăng ký</a> thành viên để xem thông tin hồ sơ!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal-user -->
+<div class="modal-page user-forgot-password">
+    <div class="escape-modal"></div>
+    <div class="edit-pf">
+        <div class="close-modal"><img src="web/frontend/images/escape.png" alt=""></div>
+        <div class="edit-profile-form">
+            <div class="title-panel">Quên mật khẩu</div>
+            <form action="" method="post" id="forgot-form">
+                <div class="form-group">
+                    <span>Số điện thoại</span>
+                    <input type="number" name="sdt" id="forgotSdt" placeholder="Số điện thoại đăng ký" required>
+                </div>
+                <div class="form-group">
+                    <span>Mã thợ sơn / Galart</span>
+                    <input type="text" name="codeId" id="forgotCode" required placeholder="GA00001, GALART0001">
+                    <p class="amz-forgot-pass-error" style="color: red"></p>
+                </div>
+                <div class="form-group">
+                    <a class="amz-user-get-password">Gửi</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- edit-pf -->
+</div>
