@@ -350,9 +350,61 @@
                     if (!priceFormatted.includes('đ') && !priceFormatted.includes('Liên hệ')) priceFormatted += ' đ';
                     var detailLink = p.link_chi_tiet || '#';
                     var rating = p.danh_gia || p.quy_cach || '4.5';
-                    var badgeText = (p.phan_khuc ? p.phan_khuc.toUpperCase() : (p.nhom_ten ? p.nhom_ten.toUpperCase() : 'SƠN GALAXY'));
-                    if (!badgeText.startsWith('SƠN') && !badgeText.startsWith('BỘT') && !badgeText.startsWith('SP')) {
-                        badgeText = 'SƠN ' + badgeText;
+
+                    // Xử lý huy hiệu phân khúc / loại sản phẩm chính xác
+                    var nhom = (p.nhom_ten || '').trim();
+                    var pk = (p.phan_khuc || '').trim();
+                    var ten = (p.ten_san_pham || '').trim().toLowerCase();
+                    var nhomLower = nhom.toLowerCase();
+                    var badgeText = '';
+
+                    // 1. Bột trét tường
+                    if (nhomLower.includes('bột') || ten.includes('bột') || ten.includes('silk plaster') || ten === 'protector') {
+                        if (!pk) {
+                            badgeText = 'BỘT TRÉT CAO CẤP';
+                        } else {
+                            var pkUpper = pk.toUpperCase();
+                            if (pkUpper.includes('BỘT')) {
+                                badgeText = pkUpper;
+                            } else {
+                                badgeText = 'BỘT TRÉT ' + pkUpper;
+                            }
+                        }
+                    }
+                    // 2. Chống thấm
+                    else if (nhomLower.includes('chống thấm') || ten.includes('chống thấm') || ten.includes('proflex')) {
+                        if (!pk) {
+                            badgeText = 'CHỐNG THẤM CAO CẤP';
+                        } else {
+                            var pkUpper = pk.toUpperCase();
+                            if (pkUpper.includes('CHỐNG THẤM') || pkUpper.startsWith('SP')) {
+                                badgeText = pkUpper;
+                            } else {
+                                badgeText = 'CHỐNG THẤM ' + pkUpper;
+                            }
+                        }
+                    }
+                    // 3. Sơn lót
+                    else if (nhomLower.includes('sơn lót') || nhomLower.includes('son lot') || ten.includes('sơn lót') || ten.includes('lot') || ten.includes('primer') || ten.includes('sealer')) {
+                        if (!pk) {
+                            badgeText = 'SƠN LÓT CAO CẤP';
+                        } else {
+                            var pkUpper = pk.toUpperCase();
+                            if (pkUpper.startsWith('SƠN LÓT')) {
+                                badgeText = pkUpper;
+                            } else if (pkUpper.startsWith('SƠN')) {
+                                badgeText = pkUpper.replace(/^SƠN\s+/, 'SƠN LÓT ');
+                            } else {
+                                badgeText = 'SƠN LÓT ' + pkUpper;
+                            }
+                        }
+                    }
+                    // 4. Các loại sơn khác
+                    else {
+                        badgeText = (pk ? pk.toUpperCase() : (nhom ? nhom.toUpperCase() : 'SƠN GALAXY'));
+                        if (!badgeText.startsWith('SƠN') && !badgeText.startsWith('BỘT') && !badgeText.startsWith('SP') && !badgeText.startsWith('CHỐNG')) {
+                            badgeText = 'SƠN ' + badgeText;
+                        }
                     }
 
                     html += '<div class="item" data-category="' + (p.nhom_ten || '') + '" data-segment="' + (p.phan_khuc || '') + '">' +
